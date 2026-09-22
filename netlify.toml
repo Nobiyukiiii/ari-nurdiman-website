@@ -8,6 +8,9 @@
   NODE_VERSION = "20"
   SUPABASE_URL = "https://jgmdsbugipcfugksinbo.supabase.co"
   SUPABASE_ANON_KEY = "sb_publishable_MAZ52dZdgvoq14rbzIUIEw_qATtfaHJ"
+  # SUPABASE_ANON_KEY is intentionally public (Supabase "anon/publishable" key).
+  # It is safe to appear in client-side build output - RLS policies limit what it can do.
+  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_URL,SUPABASE_ANON_KEY"
 
 # CORS headers so the Admin Panel can always read version.json from any origin
 [[headers]]

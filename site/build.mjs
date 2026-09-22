@@ -13,12 +13,32 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { loadEnv } from "./scripts/lib/supabase.mjs";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(ROOT, "dist");
 
-loadEnv();
+// Load env vars from site/.env, repo-root .env, or admin/config.js (no import needed)
+(function loadEnv() {
+  const parseEnvFile = (filePath) => {
+    if (!fs.existsSync(filePath)) return;
+    for (const raw of fs.readFileSync(filePath, "utf8").split(/\r?\n/)) {
+      const m = raw.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+      if (m && !(m[1] in process.env) && m[2]) process.env[m[1]] = m[2].replace(/^["']|["']$/g, "");
+    }
+  };
+  parseEnvFile(path.join(ROOT, ".env"));
+  parseEnvFile(path.resolve(ROOT, "..", ".env"));
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) {
+    const cfg = path.resolve(ROOT, "..", "admin", "config.js");
+    if (fs.existsSync(cfg)) {
+      const t = fs.readFileSync(cfg, "utf8");
+      const u = t.match(/SUPABASE_URL\s*:\s*["']([^"']+)["']/);
+      const k = t.match(/SUPABASE_ANON_KEY\s*:\s*["']([^"']+)["']/);
+      if (u && !process.env.SUPABASE_URL) process.env.SUPABASE_URL = u[1];
+      if (k && !process.env.SUPABASE_ANON_KEY) process.env.SUPABASE_ANON_KEY = k[1];
+    }
+  }
+})();
 const pullScript = path.join(ROOT, "scripts", "pull-supabase.mjs");
 if (fs.existsSync(pullScript) && process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY && !process.env.SKIP_PULL) {
   console.log("Supabase credentials found. Pulling latest published content...");
