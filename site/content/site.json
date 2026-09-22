@@ -1,0 +1,112 @@
+{
+  "name": "Ari Nurdiman",
+  "lang": "id",
+  "siteUrl": "https://example.com",
+  "seo": {
+    "title": "Ari Nurdiman | Official Website",
+    "description": "Website resmi Ari Nurdiman, musisi dan penyanyi-penulis lagu asal Bandung. Dengarkan Berarti, Namun Tak Sama, Satu Janji, Satu Hidup, Senyummu Cukup, dan Sesederhana Ini."
+  },
+  "socials": {
+    "spotify": "https://open.spotify.com/artist/5tWhgpvyldtw8oY1JpcqKp",
+    "youtube": null,
+    "instagram": null,
+    "tiktok": null
+  },
+  "spotifyArtistId": "5tWhgpvyldtw8oY1JpcqKp",
+  "contact": {
+    "email": null
+  },
+  "artist": {
+    "city": "Bandung, Jawa Barat",
+    "birthplace": "Kabupaten Brebes, Jawa Tengah",
+    "genres": [
+      "Indie pop",
+      "Alternative pop",
+      "Indie rock"
+    ],
+    "photo": {
+      "file": "artist/ari-nurdiman.jpg",
+      "alt": "Ari Nurdiman",
+      "width": 640,
+      "height": 640
+    }
+  },
+  "hero": {
+    "eyebrow": "Official Website",
+    "tagline": "Musisi & penulis lagu Indonesia",
+    "primaryCta": "Dengarkan di Spotify",
+    "secondaryCta": "Jelajahi Musik"
+  },
+  "sections": {
+    "releases": {
+      "eyebrow": "Musik",
+      "title": "Rilis Terbaru",
+      "text": "Dengarkan karya-karya terbaru Ari Nurdiman di Spotify.",
+      "cta": "Dengarkan di Spotify",
+      "note": "Terbaru: {latest}"
+    },
+    "about": {
+      "eyebrow": "Tentang Ari Nurdiman",
+      "title": "Lagu-lagu tentang momen kecil yang sulit diucapkan.",
+      "bio": [
+        "Ari Nurdiman adalah musisi dan penyanyi-penulis lagu asal Bandung, Jawa Barat. Ia lahir di Kabupaten Brebes, Jawa Tengah.",
+        "Musiknya berada di antara indie pop, alternative pop, dan indie rock: penulisan lagu yang intim, melodi yang hangat, dan aransemen bersahaja yang digerakkan gitar.",
+        "Lagu-lagunya berulang kali kembali pada emosi sehari-hari seperti ketidakpastian, hubungan, jarak, dan kenangan, dengan vokal yang natural dan suasana yang santai."
+      ],
+      "cta": "Lebih Tentang Ari",
+      "note": "Bandung, Jawa Barat"
+    },
+    "listen": {
+      "eyebrow": "Dengarkan",
+      "title": "Putar di sini.",
+      "text": "Dengarkan Ari Nurdiman di Spotify. Tekan play, atau buka profilnya."
+    },
+    "videos": {
+      "enabled": false,
+      "eyebrow": "Visual & Video",
+      "title": "Lihat Lebih Dekat",
+      "text": "Video klip, live session, dan cerita di balik lagu.",
+      "cta": "Tonton Semua Video"
+    },
+    "gallery": {
+      "enabled": false,
+      "eyebrow": "Galeri",
+      "title": "Momen di Balik Layar",
+      "text": "Perjalanan visual dari proses kreatif hingga kehidupan sehari-hari.",
+      "cta": "Lihat Galeri"
+    },
+    "news": {
+      "enabled": false,
+      "eyebrow": "News",
+      "title": "Berita & Update",
+      "text": "Jangan lewatkan kabar terbaru, rilis, dan kegiatan Ari Nurdiman.",
+      "cta": "Lihat Semua Berita"
+    },
+    "finalCorners": {
+      "enabled": false,
+      "eyebrow": "Juga dikenal lewat",
+      "name": "Final Corners",
+      "role": "",
+      "summary": "",
+      "url": "",
+      "image": null
+    }
+  },
+  "contactPage": {
+    "title": "Hubungi Ari",
+    "text": "Temukan Ari Nurdiman dan musiknya di kanal resmi berikut."
+  },
+  "credits": {
+    "text": [
+      {
+        "what": "Biografi dan deskripsi lagu (diadaptasi)",
+        "from": "Last.fm",
+        "url": "https://www.last.fm/music/Ari+Nurdiman",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    ],
+    "images": "Semua foto dan artwork tetap menjadi milik pemiliknya masing-masing."
+  },
+  "copyrightYear": 2026
+}

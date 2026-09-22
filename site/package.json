@@ -1,0 +1,16 @@
+{
+  "name": "ari-nurdiman-official-static",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official static website for Ari Nurdiman. Content comes from Supabase (or content/*.json); the build writes plain HTML to dist/.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "assets": "node scripts/fetch-assets.mjs",
+    "check": "node build.mjs && node scripts/check-assets.mjs",
+    "pull": "node scripts/pull-supabase.mjs",
+    "seed": "node scripts/seed-supabase.mjs",
+    "build:remote": "node scripts/pull-supabase.mjs && node build.mjs"
+  }
+}

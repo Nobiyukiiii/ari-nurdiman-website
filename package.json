@@ -1,0 +1,10 @@
+{
+  "name": "ari-nurdiman-cms",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "mock": "node tools/mock-supabase.mjs",
+    "admin": "node tools/serve-static.mjs admin 8090",
+    "site": "cd site && node scripts/serve.mjs"
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "file": "public/assets/artist/ari-nurdiman.jpg",
+    "url": "https://i.scdn.co/image/ab6761610000e5eb28e1b60bbfa115d4df7f0c00",
+    "note": "Spotify artist profile image, 640x640"
+  },
+  {
+    "file": "public/assets/releases/berarti-namun-tak-sama.jpg",
+    "url": "https://lastfm-img.freetls.fastly.net/i/u/500x500/4724152a25dff9959f289d9741cf7aff.jpg",
+    "note": "Cover artwork, via Last.fm"
+  },
+  {
+    "file": "public/assets/releases/satu-janji-satu-hidup.jpg",
+    "url": "https://lastfm-img.freetls.fastly.net/i/u/500x500/4bcbc115b964d2505a248758e6d5abe4.jpg",
+    "note": "Cover artwork, via Last.fm"
+  },
+  {
+    "file": "public/assets/releases/senyummu-cukup.jpg",
+    "url": "https://lastfm-img.freetls.fastly.net/i/u/500x500/d2c43435d9709fd4011c1d4ae7379075.jpg",
+    "note": "Cover artwork, via Last.fm"
+  },
+  {
+    "file": "public/assets/releases/sesederhana-ini.jpg",
+    "url": "https://lastfm-img.freetls.fastly.net/i/u/500x500/3e86abf9a3f336147d1790e04e93f7a2.jpg",
+    "note": "Cover artwork, via Last.fm"
+  }
+]
