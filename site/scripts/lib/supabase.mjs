@@ -6,13 +6,33 @@ import { fileURLToPath } from "node:url";
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 
-/** Loads ROOT/.env (KEY=VALUE per line) into process.env without overriding real env vars. */
+/** Loads env vars from site/.env, root .env, or admin/config.js without overriding real env vars. */
 export function loadEnv() {
-  const f = path.join(ROOT, ".env");
-  if (!fs.existsSync(f)) return;
-  for (const raw of fs.readFileSync(f, "utf8").split(/\r?\n/)) {
-    const m = raw.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
-    if (m && !(m[1] in process.env)) process.env[m[1]] = m[2].replace(/^["']|["']$/g, "");
+  const parseEnvFile = (filePath) => {
+    if (!fs.existsSync(filePath)) return;
+    for (const raw of fs.readFileSync(filePath, "utf8").split(/\r?\n/)) {
+      const m = raw.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+      if (m && !(m[1] in process.env) && m[2]) {
+        process.env[m[1]] = m[2].replace(/^["']|["']$/g, "");
+      }
+    }
+  };
+
+  // 1. Try site/.env
+  parseEnvFile(path.join(ROOT, ".env"));
+  // 2. Try repo root .env
+  parseEnvFile(path.resolve(ROOT, "..", ".env"));
+
+  // 3. Fallback: parse public SUPABASE_URL & SUPABASE_ANON_KEY from admin/config.js if missing
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) {
+    const adminConfig = path.resolve(ROOT, "..", "admin", "config.js");
+    if (fs.existsSync(adminConfig)) {
+      const content = fs.readFileSync(adminConfig, "utf8");
+      const urlMatch = content.match(/SUPABASE_URL\s*:\s*["']([^"']+)["']/);
+      const keyMatch = content.match(/SUPABASE_ANON_KEY\s*:\s*["']([^"']+)["']/);
+      if (urlMatch && !process.env.SUPABASE_URL) process.env.SUPABASE_URL = urlMatch[1];
+      if (keyMatch && !process.env.SUPABASE_ANON_KEY) process.env.SUPABASE_ANON_KEY = keyMatch[1];
+    }
   }
 }
 

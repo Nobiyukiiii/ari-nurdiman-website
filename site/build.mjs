@@ -11,10 +11,27 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { loadEnv } from "./scripts/lib/supabase.mjs";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(ROOT, "dist");
+
+loadEnv();
+const pullScript = path.join(ROOT, "scripts", "pull-supabase.mjs");
+if (fs.existsSync(pullScript) && process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY && !process.env.SKIP_PULL) {
+  console.log("Supabase credentials found. Pulling latest published content...");
+  const res = spawnSync(process.execPath, [pullScript, "--lenient"], {
+    cwd: ROOT,
+    stdio: "inherit",
+    env: process.env,
+  });
+  if (res.status !== 0) {
+    console.warn("Pull from Supabase exited with code", res.status, "- proceeding with local content.");
+  }
+}
+
 const readJson = (f) => JSON.parse(fs.readFileSync(path.join(ROOT, "content", f), "utf8"));
 
 const site = readJson("site.json");
@@ -573,6 +590,11 @@ copyDir(path.join(ROOT, "src", "fonts"), path.join(DIST, "assets", "fonts"));
 copyDir(path.join(ROOT, "src", "css"), path.join(DIST, "assets", "css"));
 copyDir(path.join(ROOT, "src", "js"), path.join(DIST, "assets", "js"));
 copyDir(path.join(ROOT, "public"), path.join(DIST));
+
+const adminDir = path.resolve(ROOT, "..", "admin");
+if (fs.existsSync(adminDir)) {
+  copyDir(adminDir, path.join(DIST, "admin"));
+}
 
 const urls = pages.filter((x) => !["404.html", "credits/index.html"].includes(x.p)).map((x) => x.p.replace(/index\.html$/, ""));
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE_URL}/${u}</loc></url>`).join("\n")}\n</urlset>\n`);

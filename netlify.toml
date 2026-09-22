@@ -1,0 +1,23 @@
+# Netlify Configuration for Ari Nurdiman Website & Admin Panel
+[build]
+  base = "site"
+  publish = "dist"
+  command = "node build.mjs"
+
+[build.environment]
+  NODE_VERSION = "20"
+  SUPABASE_URL = "https://jgmdsbugipcfugksinbo.supabase.co"
+  SUPABASE_ANON_KEY = "sb_publishable_MAZ52dZdgvoq14rbzIUIEw_qATtfaHJ"
+
+# CORS headers so the Admin Panel can always read version.json from any origin
+[[headers]]
+  for = "/version.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "no-store"
+
+# Security headers for general assets
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"

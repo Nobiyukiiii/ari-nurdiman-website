@@ -36,6 +36,9 @@ const setSync = (s) => { state.sync = s; paintBadge(); listeners.forEach((fn) =>
 async function loadSiteUrl(force) {
   if (state.siteUrl !== null && !force) return state.siteUrl;
   try { const r = await api.select("site_settings", "select=data&id=eq.1"); state.siteUrl = r[0]?.data?.siteUrl || ""; } catch { state.siteUrl = ""; }
+  if (!state.siteUrl && typeof window !== "undefined" && window.location) {
+    if (window.location.pathname.startsWith("/admin")) state.siteUrl = window.location.origin;
+  }
   return state.siteUrl;
 }
 async function refreshSync(force = false) {

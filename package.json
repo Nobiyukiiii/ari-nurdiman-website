@@ -3,8 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "mock": "node tools/mock-supabase.mjs",
+    "build": "cd site && node build.mjs",
+    "build:remote": "cd site && node scripts/pull-supabase.mjs && node build.mjs",
+    "pull": "cd site && node scripts/pull-supabase.mjs",
+    "seed": "cd site && node scripts/seed-supabase.mjs",
+    "check": "cd site && npm run check",
+    "dev": "node tools/serve-static.mjs admin 8090",
     "admin": "node tools/serve-static.mjs admin 8090",
-    "site": "cd site && node scripts/serve.mjs"
+    "site": "cd site && node scripts/serve.mjs",
+    "mock": "node tools/mock-supabase.mjs"
   }
 }

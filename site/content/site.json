@@ -1,20 +1,20 @@
 {
   "name": "Ari Nurdiman",
   "lang": "id",
-  "siteUrl": "https://example.com",
+  "siteUrl": "https://arinurdimanofficial.netlify.app/",
   "seo": {
     "title": "Ari Nurdiman | Official Website",
     "description": "Website resmi Ari Nurdiman, musisi dan penyanyi-penulis lagu asal Bandung. Dengarkan Berarti, Namun Tak Sama, Satu Janji, Satu Hidup, Senyummu Cukup, dan Sesederhana Ini."
   },
   "socials": {
     "spotify": "https://open.spotify.com/artist/5tWhgpvyldtw8oY1JpcqKp",
-    "youtube": null,
-    "instagram": null,
-    "tiktok": null
+    "youtube": "https://www.youtube.com/channel/UCX8b9uNQW-T6YVgb1CMxStA",
+    "instagram": "https://www.instagram.com/arinurdiman_/",
+    "tiktok": "https://www.tiktok.com/@arriiiiiiii_"
   },
   "spotifyArtistId": "5tWhgpvyldtw8oY1JpcqKp",
   "contact": {
-    "email": null
+    "email": "arinur201@gmail.com"
   },
   "artist": {
     "city": "Bandung, Jawa Barat",
@@ -99,9 +99,9 @@
   "credits": {
     "text": [
       {
-        "what": "Biografi dan deskripsi lagu (diadaptasi)",
-        "from": "Last.fm",
         "url": "https://www.last.fm/music/Ari+Nurdiman",
+        "from": "Last.fm",
+        "what": "Biografi dan deskripsi lagu (diadaptasi)",
         "license": "CC BY-SA 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
       }

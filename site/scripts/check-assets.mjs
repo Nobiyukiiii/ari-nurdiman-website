@@ -15,7 +15,7 @@ const external = new Set();
 const missing = new Set();
 const imageExt = /\.(?:jpe?g|png|webp|avif|gif|svg)(?:\?.*)?$/i;
 
-for (const f of files.filter((x) => /\.(html|css|js)$/.test(x))) {
+for (const f of files.filter((x) => /\.(html|css|js)$/.test(x) && !x.includes(`${path.sep}admin${path.sep}`))) {
   const text = fs.readFileSync(f, "utf8");
   const rel = path.relative(dist, f);
   const refs = [];

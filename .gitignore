@@ -1,5 +1,10 @@
 node_modules
 dist
+site/dist
 .env
+site/.env
 tools/.mock-data
 site/content/_meta.json
+ari-nurdiman-website
+.DS_Store
+Thumbs.db

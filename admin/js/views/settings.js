@@ -84,7 +84,7 @@ export function settingsView(ctx) {
       if (photo.meta.width) { setPath(data, "artist.photo.width", photo.meta.width); setPath(data, "artist.photo.height", photo.meta.height); }
       setPath(data, "sections.finalCorners.image", fcImage.value ? { file: fcImage.value, alt: data.sections?.finalCorners?.name || "" } : null);
       // validation
-      if (data.siteUrl && !isHttpUrl(data.siteUrl)) return fail("Alamat website harus diawali https://");
+      if (data.siteUrl && !isHttpUrl(data.siteUrl)) return fail("Alamat website harus diawali https:// atau http://");
       for (const s of socials) {
         const v = data.socials?.[s]; if (!v) continue;
         let host = ""; try { host = new URL(v).hostname; } catch { /* handled below */ }
